@@ -1,0 +1,359 @@
+[
+  {
+    "model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "task_d": [
+      {
+        "id": "D1",
+        "type": "combo",
+        "score": 1.0,
+        "ok": true,
+        "elapsed": 6.09678840637207,
+        "tokens": 656,
+        "reply": "先把所有權值進行離散化，以此為區間建立主席樹（持久化線段樹），每個節點的版本表示從樹根到該點的權值多重集；利用倍增法預處理 LCA，使任意兩點的最近公共祖先可在 O(log n) 內求得。對查詢 (u, v, k)，令 w = LCA(u, v)，則路徑 u→v 上的權值 multiset 等於版本[u] + 版本[v] − 版本[w] − 版本[parent[w]]，在主席樹上根據這四個版本的計數差依次向左或向右走，找到第 k 小的離散值，最後映射回原始權值即為答案。整個過程建樹與每次查詢均為 O(log n)，總複雜度 O((n+q) log n)。",
+        "detail": {
+          "hit1": [
+            "主席樹"
+          ],
+          "hit2": [
+            "lca",
+            "倍增",
+            "最近公共祖先"
+          ],
+          "trapped": false
+        }
+      },
+      {
+        "id": "D2",
+        "type": "combo",
+        "score": 0.5,
+        "ok": true,
+        "elapsed": 3.52524733543396,
+        "tokens": 719,
+        "reply": "1. 建立所有模式串的 Aho‑Corasick Trie，並透過 BFS 計算每個節點的失效（fail）指標。  \n2. 以此自動機遍歷主串 s：對每個字符沿著現有邊或透過 fail 指標跳轉至可轉移的節點，並把該節點的訪問次數 `cnt[ node ] ++`。  \n3. 最後按 BFS 逆序（從深度大到小）將每個節點的 `cnt` 加到其 fail 指標所指的節點上；每個模式串對應的終端節點最終的 `cnt` 即為該模式在 s 中出現的次數（含重疊）。",
+        "detail": {
+          "hit1": [],
+          "hit2": [
+            "trie",
+            "fail"
+          ],
+          "trapped": false
+        }
+      },
+      {
+        "id": "D3",
+        "type": "trap",
+        "score": 0.5,
+        "ok": true,
+        "elapsed": 7.281332731246948,
+        "tokens": 793,
+        "reply": "先將 n≤40 個物品分成兩半（各最多 20 個），分別枚舉每半的所有子集，得到每個子集的總重量與總價值（共最多 2^{20}≈10^6 筆）。對第一半的子集按重量升序排序，然後掃描保留前綴最大價值，即對每個重量只保留在此重量或以下能達到的最高價值，這樣任何重量上限都能透過二分搜尋得到對應的最佳價值。最後遍歷第二半的每個子集，計算剩餘容量 W‑w₂，在預處理好的第一半列表中二分搜尋最大不超過該剩餘容量的條目，將其價值與 v₂相加更新答案；整體時間與空間複雜度為 O(2^{n/2})。",
+        "detail": {
+          "hit1": [],
+          "hit2": [
+            "排序",
+            "二分"
+          ],
+          "trapped": false
+        }
+      },
+      {
+        "id": "D4",
+        "type": "trap",
+        "score": 0.5,
+        "ok": true,
+        "elapsed": 339.3357605934143,
+        "tokens": 29463,
+        "reply": "先用範線法預先算出每個整數 ≤ max(A) 的最小質因數，然後對每個輸入的每個數分解出其互異的質因數（最多只有幾個），並把對應質因數的計數器加一。  \n最後答案是所有質因數計數器中的最大值，因為若一組數兩兩的 GCD 都大於 1，則必定存在一個質因數能同時整除這些數（否則可找出兩個質因數集合完全 disjoint 的數，與條件矛盾），而所有含有該質因數的數互相一定有 GCD>1，所以最大符合條件的子集就是計數器最大的質因數所對應的數的集合。  \n\n（時間複雜度 O(maxA log log maxA + N log A)，空間複雜度 O(maxA)。）",
+        "detail": {
+          "hit1": [
+            "質因數"
+          ],
+          "hit2": [],
+          "trapped": false
+        }
+      },
+      {
+        "id": "D5",
+        "type": "complexity",
+        "score": 1.0,
+        "ok": true,
+        "elapsed": 5.425187110900879,
+        "tokens": 688,
+        "reply": "該程式在每次查詢時都對區間進行一次線性掃描，時間複雜度為 O(Q·N)，在 N、Q 均達 10⁵ 的情況下會達到 10¹⁰ 次運算，遠超過 1 秒的時限。  \n正確做法是先對陣列進行 RMQ（Range Maximum Query）前處理，例如建立 segment tree（每次查詢 O(log N)）或稀疏表（Sparse Table，預處理 O(N log N)、查詢 O(1)），以將總時間降至可接受的範圍。  \n此外，若輸入的 l、r 是以 1 為基底，則在存取 a[i] 前需將其調整為 0 基底（i = l‑1 … r‑1），否則會越界或得到錯誤結果。",
+        "detail": {
+          "hit1": [
+            "複雜度"
+          ],
+          "hit2": [
+            "sparse table",
+            "segment tree",
+            "稀疏表",
+            "rmq"
+          ],
+          "trapped": false
+        }
+      }
+    ],
+    "task_d_score": 3.5,
+    "task_d_elapsed": 361.66431617736816,
+    "task_d_tokens": 32319,
+    "task_d_pct": 70.0
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task_d": [
+      {
+        "id": "D1",
+        "type": "combo",
+        "score": 0.5,
+        "ok": true,
+        "elapsed": 11.435106754302979,
+        "tokens": 1324,
+        "reply": "使用權重的排序對查詢進行**平行二進制搜尋**：每一步中，將權值 ≤ 當前中位數的所有節點加入到一個支援**點權值查詢**的 Fenwick 樹中，鍵值為節點在 Euler 遍歷中的進入時間；對於查詢 (u,v) 而言，通過 lca 計算 path 中權值 ≤ mid 的節點數量\n\n\\[\n\\text{cnt}= \\operatorname{bit}[u]+\\operatorname{bit}[v]-2\\operatorname{bit}[\\operatorname{lca}(u,v)]+\\mathbf{1}_{w[\\operatorname{lca}] \\le \\text{mid}},\n\\]\n\n然後更新每個查詢的高/低界限，重複此過程直到每個查詢的答案確定。隨著 n,q ≤2·10^5 以及權重範圍 ≤10^9，此方法運行時間為 O((n+q)·log n·log C)，空間複雜度為 O(",
+        "detail": {
+          "hit1": [],
+          "hit2": [
+            "lca"
+          ],
+          "trapped": false
+        }
+      },
+      {
+        "id": "D2",
+        "type": "combo",
+        "score": 0.5,
+        "ok": true,
+        "elapsed": 10.875810384750366,
+        "tokens": 1162,
+        "reply": "**Pseudocode**\n```\n# ----- Build Aho‑Corasick automaton -----\nnode = [ {link:0, count:0, next[26]=⊥} ]   # root = index 0\nfor each pattern P in patterns:\n    cur = 0\n    for each character c in P:\n        idx = c - 'a'\n        if node[cur].next[idx] == ⊥:\n            node.append({link:0, count:0, next[26]=⊥})\n            node[cur].next[idx] = size(node)-1\n        cur = node[cur].next[idx]\n    node",
+        "detail": {
+          "hit1": [],
+          "hit2": [
+            "trie",
+            "fail"
+          ],
+          "trapped": false
+        }
+      },
+      {
+        "id": "D3",
+        "type": "trap",
+        "score": 1.0,
+        "ok": true,
+        "elapsed": 6.170605421066284,
+        "tokens": 455,
+        "reply": "**解法簡述** (三句話)：\n\n1. 將 n 個物品分成兩組，每組大致包含 n/2 個物品，然後對每組 Enumerate 所有 2^(n/2) 個子集，並記錄每個子集的總重量和總價值。\n\n2. 對第二組 Enumerate 的子集按重量排序，並構建一個前綴最佳價值陣列，使得對於任意重量限制，每個前綴中的最大價值都是非遞減的。\n\n3. 對第一組 Enumerate 的每個子集，計算其重量和價值 w₁/v₁；然後在第二組的表中搜尋重量限制為 W - w₁ 的最大價值（使用二元搜尋）；這兩個子集的價值之和就是在這個子集組合下的最佳價值，最終保留所有第一組子集中的最大值，即為完整背包問題的最佳解。",
+        "detail": {
+          "hit1": [
+            "2^(n/2)"
+          ],
+          "hit2": [
+            "排序"
+          ],
+          "trapped": false
+        }
+      },
+      {
+        "id": "D4",
+        "type": "trap",
+        "score": 1.0,
+        "ok": true,
+        "elapsed": 19.8518488407135,
+        "tokens": 894,
+        "reply": "先預先計算所有 ≤ sqrt(max_a) 的質數，然後對每個數字執行質因數分解；對於每一種質因數 p，將含有 p 的所有數字通過 DSU 進行合併（只需用第一個見到 p 的數字當作代表節點）。最後，這題的答案就是 DSU 中最大連通分量的節點數目（若需要可輸出該分量內的所有數字）。",
+        "detail": {
+          "hit1": [
+            "質因數",
+            "因數分解"
+          ],
+          "hit2": [
+            "dsu"
+          ],
+          "trapped": false
+        }
+      },
+      {
+        "id": "D5",
+        "type": "complexity",
+        "score": 1.0,
+        "ok": true,
+        "elapsed": 9.8857741355896,
+        "tokens": 624,
+        "reply": "此程式碼為每個查詢都從 `l` 到 `r` 進行單一遍歷，因此 Worst-case 時間複雜度為 **O(N·Q)**（例如當每個查詢覆蓋整個陣列時），導致在 10⁵ 個查詢時會超時；\n\n**最大值** 運算是可結合的，因此可以使用更快速的資料結構來處理區間查詢，例如**Sparse Table**（O(1) 查詢，O(N log N) 預處理）、**區間樹**（每項查詢 O(log N)）或**區間分解**（每項查詢 O(√N)），以將總時間複雜度限制在 ~N log N 或 N √N 範圍內；\n\n此外，如果陣列 `a` 是 0 索引的，而輸入的 `l`、`r` 是 1 索引的，則 `a[r]` 將超出邊界；請確保調整查詢區間以符合陣列的索引範圍。",
+        "detail": {
+          "hit1": [
+            "超時",
+            "複雜度"
+          ],
+          "hit2": [
+            "sparse table"
+          ],
+          "trapped": false
+        }
+      }
+    ],
+    "task_d_score": 4.0,
+    "task_d_elapsed": 58.21914553642273,
+    "task_d_tokens": 4459,
+    "task_d_pct": 80.0
+  },
+  {
+    "model": "google/gemma-4-31b-it:free",
+    "task_d": [
+      {
+        "id": "D1",
+        "type": "combo",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.23883342742919922,
+        "tokens": 0,
+        "reply": "{'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'google/gemma-4-31b-it:free is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your r"
+      },
+      {
+        "id": "D2",
+        "type": "combo",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.16346049308776855,
+        "tokens": 0,
+        "reply": "{'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'google/gemma-4-31b-it:free is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your r"
+      },
+      {
+        "id": "D3",
+        "type": "trap",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.20738816261291504,
+        "tokens": 0,
+        "reply": "{'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'google/gemma-4-31b-it:free is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your r"
+      },
+      {
+        "id": "D4",
+        "type": "trap",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.17746543884277344,
+        "tokens": 0,
+        "reply": "{'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'google/gemma-4-31b-it:free is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your r"
+      },
+      {
+        "id": "D5",
+        "type": "complexity",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.3456916809082031,
+        "tokens": 0,
+        "reply": "{'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'google/gemma-4-31b-it:free is temporarily rate-limited upstream. Please retry shortly, or add your own key to accumulate your r"
+      }
+    ],
+    "task_d_score": 0,
+    "task_d_elapsed": 1.1328392028808594,
+    "task_d_tokens": 0,
+    "task_d_pct": 0.0
+  },
+  {
+    "model": "inclusionai/ling-3.0-flash-sante:free",
+    "task_d": [
+      {
+        "id": "D1",
+        "type": "combo",
+        "score": 1.0,
+        "ok": true,
+        "elapsed": 3.9662206172943115,
+        "tokens": 1022,
+        "reply": "**解法：Persistent Segment Tree（可持久化线段樹 / Chairman Tree）+ LCA**\n\n1. **離散化**所有點權，並以樹根為基準做 DFS：每個節點 $x$ 对應一份 PST 版本 $root[x]$，等於 $root[parent[x]]$ 單點插入 $val[x]$（前綴和思想），高度 $O(\\log n)$。\n\n2. **詢問 $(u,v,k)$**：先求 $w = \\text{LCA}(u,v)$，則路徑 $u\\!\\to\\!v$ 上權值 multiset 對應的「值域前綴和」為  \n   $cnt = sum(root[u]) + sum(root[v]) - sum(root[w]) - sum(root[parent[w]])$。  \n   在四棵 PST 上同步二分（類比樹狀数组離線查第 k 小），依左子樹 cnt 決定往左或右子樹走到",
+        "detail": {
+          "hit1": [
+            "persistent",
+            "可持久化",
+            "chairman",
+            "persistent segment tree"
+          ],
+          "hit2": [
+            "lca",
+            "倍增"
+          ],
+          "trapped": false
+        }
+      },
+      {
+        "id": "D2",
+        "type": "combo",
+        "score": 0.5,
+        "ok": true,
+        "elapsed": 18.244471788406372,
+        "tokens": 4238,
+        "reply": "把所有模式串插入 Trie 並記錄結尾節點，BFS 構建 failure 指針；用 s 跑自動機，每節點計數加一，最後沿 failure 树由葉往根累加計數，結尾節點值即為答案。時間 O(n + 總模式長)，空間 O(總模式長 × 字元集大小)，大字符集用 hash map；模式串可能重複而共用結點，預處理自動機轉移或均攤跳 failure 確保線性。",
+        "detail": {
+          "hit1": [],
+          "hit2": [
+            "trie",
+            "fail"
+          ],
+          "trapped": false
+        }
+      },
+      {
+        "id": "D3",
+        "type": "trap",
+        "score": 1.0,
+        "ok": true,
+        "elapsed": 2.5007240772247314,
+        "tokens": 582,
+        "reply": "**解法：折半搜索（Meet in the Middle）**\n\n1. 將 n 個物品分成前後兩半（各 ≤ 20 個），分別枚舉所有子集，得到兩組 (重量, 價值) 列表，複雜度各 O(2^(n/2))。\n2. 對後組按重量排序，掃描時維護價值的前綴最大值，去掉「重量更大但價值更小」的被支配項，確保後組價值隨重量嚴格遞增。\n3. 對前組每個子集，二分搜尋後組中重量 ≤ W − w₁ 的最大價值，取所有組合的最大值；注意重量和價值皆用 64 位整數（W 高達 10^18）。\n\n總時間 O(2^(n/2) · n) ≈ 2×10^7，空間 O(2^(n/2))，可輕鬆通過。",
+        "detail": {
+          "hit1": [
+            "meet in the middle",
+            "折半",
+            "折半搜索",
+            "2^(n/2)"
+          ],
+          "hit2": [
+            "排序",
+            "二分"
+          ],
+          "trapped": false
+        }
+      },
+      {
+        "id": "D4",
+        "type": "trap",
+        "score": 0.5,
+        "ok": true,
+        "elapsed": 9.106077671051025,
+        "tokens": 2175,
+        "reply": "此題經典解法如下：\n\n1. **核心觀察**：若子集內所有數的 gcd > 1，則它們必共享某個質因數 p，因此答案等於「對每個質數 p，統計輸入中有多少數是 p 的倍數」的最大值。\n2. **實作**：先用線性篩預處理出最小質因子表，對每個輸入數分解質因數，對每個質因子 p 把計數器 cnt[p]++，最後取 max(cnt[p]) 即可。\n3. **複雜度**：分解每個數耗時 O(log A)，總時間 O(n log A + A)，空間 O(A)，其中 A 為數值上限（≤ 10^6 左右），完全符合 n ≤ 10^5 的限制。\n\n**注意**：若題目真要求「兩兩 gcd > 1」而非「整體 gcd > 1」，則 {6,10,15} 這類三角結構會使上述方法失靈，此時需轉為最大團問題；但一般競程題目所言「子集合 gcd > 1」均指整體 gcd，請依確切題意選用。",
+        "detail": {
+          "hit1": [
+            "質因數"
+          ],
+          "hit2": [],
+          "trapped": true
+        }
+      },
+      {
+        "id": "D5",
+        "type": "complexity",
+        "score": 1.0,
+        "ok": true,
+        "elapsed": 4.2929651737213135,
+        "tokens": 1131,
+        "reply": "1. 這段程式碼每次查詢都用 O(n) 暴力掃，最壞 O(Q·N) = 10^10 會超時，且 `mx = 0` 在數組含負數時答案會錯。\n2. 應改用 Sparse Table 做靜態區間 RMQ，先 O(n log n) 預處理，之後每筆查詢 O(1)。\n3. 定義 `st[k][i]` 為從 `i` 開始長 `2^k` 的區間最大值，回答 `[l,r]` 時取 `k = ⌊log₂(r−l+1)⌋`，答案為 `max(st[k][l], st[k][r−2^k+1])`。",
+        "detail": {
+          "hit1": [
+            "超時"
+          ],
+          "hit2": [
+            "sparse table",
+            "rmq"
+          ],
+          "trapped": false
+        }
+      }
+    ],
+    "task_d_score": 4.0,
+    "task_d_elapsed": 38.110459327697754,
+    "task_d_tokens": 9148,
+    "task_d_pct": 80.0
+  }
+]

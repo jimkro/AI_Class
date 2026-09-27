@@ -1,0 +1,592 @@
+[
+  {
+    "model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "task_a": [
+      {
+        "id": "A1",
+        "score": 0,
+        "ok": true,
+        "elapsed": 2.6761691570281982,
+        "tokens": 307,
+        "reply": "PrefixSum",
+        "hit": null
+      },
+      {
+        "id": "A2",
+        "score": 1,
+        "ok": true,
+        "elapsed": 1.545133113861084,
+        "tokens": 225,
+        "reply": "動態規劃",
+        "hit": "動態規劃"
+      },
+      {
+        "id": "A3",
+        "score": 0,
+        "ok": true,
+        "elapsed": 2.743917942047119,
+        "tokens": 334,
+        "reply": "二進位提升",
+        "hit": null
+      },
+      {
+        "id": "A4",
+        "score": 1,
+        "ok": true,
+        "elapsed": 3.1395881175994873,
+        "tokens": 351,
+        "reply": "Dijkstra",
+        "hit": "dijkstra"
+      },
+      {
+        "id": "A5",
+        "score": 1,
+        "ok": true,
+        "elapsed": 1.5568208694458008,
+        "tokens": 302,
+        "reply": "線段樹",
+        "hit": "線段樹"
+      }
+    ],
+    "task_a_score": 3,
+    "task_a_elapsed": 11.66162919998169,
+    "task_a_tokens": 1519,
+    "task_b": [
+      {
+        "id": "B1",
+        "score": 1,
+        "ok": true,
+        "elapsed": 3.088940143585205,
+        "tokens": 353,
+        "reply": "The code treats the array as 1‑indexed and stores the result in an int, causing out‑of‑bounds accesses and integer overflow.",
+        "hit": "overflow"
+      },
+      {
+        "id": "B2",
+        "score": 1,
+        "ok": true,
+        "elapsed": 1.492499828338623,
+        "tokens": 266,
+        "reply": "當 `v` 為空或只有一個元素時，`v.size() - 1` 會因無符號整數減法而產生極大的值，導致迴圈條件永遠成立，進而存取越界的元素。",
+        "hit": "空"
+      },
+      {
+        "id": "B3",
+        "score": 0,
+        "ok": true,
+        "elapsed": 10.506009817123413,
+        "tokens": 334,
+        "reply": "當 l 與 r 相鄰（如 l = 0, r = 1）時，mid = (l + r) / 2 = l，若 a[mid] < target 則 l = mid（不會變），否則 r = mid（也不會變），導致迴圈無法收斂而陷入無限迴圈。",
+        "hit": null
+      },
+      {
+        "id": "B4",
+        "score": 1,
+        "ok": true,
+        "elapsed": 3.0826456546783447,
+        "tokens": 193,
+        "reply": "The DFS lacks a visited‑set (or similar guard), so it will recurse indefinitely when the graph contains a cycle.",
+        "hit": "visited"
+      },
+      {
+        "id": "B5",
+        "score": 1,
+        "ok": true,
+        "elapsed": 3.4166860580444336,
+        "tokens": 253,
+        "reply": "在 `mp.erase(it)` 後，迭代器 `it` 已經失效，隨即在 for 迴圈的 `it++` 使用會導致未定義行為。",
+        "hit": "失效"
+      }
+    ],
+    "task_b_score": 4,
+    "task_b_elapsed": 21.58678150177002,
+    "task_b_tokens": 1399,
+    "task_c": [
+      {
+        "id": "C1",
+        "score": 0.7,
+        "ok": true,
+        "elapsed": 10.598121643066406,
+        "tokens": 317,
+        "reply": "先把所有區間依照結束點（右端點）從小到大排序；  \n然後從左到右遍歷，只要當前區間的起點不早於上一個被選取區間的結束點，就將其加入結果並更新結束點。  \n這種貪心策略能保證選出的互不重疊區間數量最大，時間複雜度為排序的 $O(n\\log n)$ 加上線性掃描的 $O(n)$，整體為 $O(n\\log n)$。",
+        "detail": {
+          "algo_hit": [
+            "貪心",
+            "排序",
+            "右端點"
+          ],
+          "has_complexity": false
+        }
+      },
+      {
+        "id": "C2",
+        "score": 1.0,
+        "ok": true,
+        "elapsed": 3.528841733932495,
+        "tokens": 399,
+        "reply": "先將陣列值進行離散化，把所有可能的數值映射到 1…n 的區間，以便使用樹狀數組（BIT）進行前綴和查詢與更新。  \n從左到右遍歷每個元素 a[i]，先在 BIT 中查詢已經出現過的比 a[i] 大的元素數量（即 i‑1 減去前綴和），將該數累加到答案；然後把 a[i] 的位置在 BIT 中加 1，表示此元素已被處理。  \n整個過程每次查詢和更新的複雜度是 O(log n)，遍歷 n 次後總時間複雜",
+        "detail": {
+          "algo_hit": [
+            "bit"
+          ],
+          "has_complexity": true
+        }
+      },
+      {
+        "id": "C3",
+        "score": 1.0,
+        "ok": true,
+        "elapsed": 49.678311347961426,
+        "tokens": 666,
+        "reply": "若無向圖中所有度為0的孤立點除外，其餘點必須屬於同一個連通分量，且奇數度點的數目必須為0或2，才存在經過每條邊恰好一次的路徑（即歐拉通路）。因此先遍歷所有邊計算每個點的度數，然後從任意度>0的點出發做一次DFS/BFS，檢查所有度>0的點是否都可達（即圖在忽略孤立點後是否連通）。整個過程只需掃描每條邊和每個點一次，時間複雜度為O(n+m)，空間複雜度為O(n+m)。",
+        "detail": {
+          "algo_hit": [
+            "歐拉",
+            "度數",
+            "連通"
+          ],
+          "has_complexity": true
+        }
+      }
+    ],
+    "task_c_score": 2.7,
+    "task_c_elapsed": 63.80527472496033,
+    "task_c_tokens": 1382,
+    "total_score": 76.66666666666666,
+    "total_elapsed": 97.05368542671204,
+    "total_tokens": 4300
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task_a": [
+      {
+        "id": "A1",
+        "score": 1,
+        "ok": true,
+        "elapsed": 1.679535150527954,
+        "tokens": 204,
+        "reply": "兩指標/滑動視窗",
+        "hit": "滑動視窗"
+      },
+      {
+        "id": "A2",
+        "score": 1,
+        "ok": true,
+        "elapsed": 1.0530815124511719,
+        "tokens": 191,
+        "reply": "0/1 背包動態規劃",
+        "hit": "動態規劃"
+      },
+      {
+        "id": "A3",
+        "score": 1,
+        "ok": true,
+        "elapsed": 1.6371681690216064,
+        "tokens": 202,
+        "reply": "二元提升 LCA",
+        "hit": "lca"
+      },
+      {
+        "id": "A4",
+        "score": 1,
+        "ok": true,
+        "elapsed": 1.6140587329864502,
+        "tokens": 197,
+        "reply": "Dijkstra 演算法",
+        "hit": "dijkstra"
+      },
+      {
+        "id": "A5",
+        "score": 0,
+        "ok": true,
+        "elapsed": 1.1351349353790283,
+        "tokens": 170,
+        "reply": "區間樹狀樹 + 延遲更新",
+        "hit": null
+      }
+    ],
+    "task_a_score": 4,
+    "task_a_elapsed": 7.118978500366211,
+    "task_a_tokens": 964,
+    "task_b": [
+      {
+        "id": "B1",
+        "score": 1,
+        "ok": true,
+        "elapsed": 1.6085138320922852,
+        "tokens": 374,
+        "reply": "`sum` 變數是使用 `int` 定義的，但無法存儲每個 `a[i]`（最大 10^9）的平方總和，這可能會導致整數溢位；應使用 64 位整數型別（例如 `long long`）來存儲累加結果。",
+        "hit": "溢位"
+      },
+      {
+        "id": "B2",
+        "score": 1,
+        "ok": true,
+        "elapsed": 13.075801372528076,
+        "tokens": 622,
+        "reply": "當 `v` 為空時，`v.size()` 回傳 `0`。因為 `size()` 回傳的是 **無號數**，所以 `v.size()‑1` 會下溢為非常大的 `size_t` 值，導致 `i < v.size()‑1` 條件總為真，並在 `v[i]` 和 `v[i+1]` 上產生讀取超越容器界限的多次",
+        "hit": "空"
+      },
+      {
+        "id": "B3",
+        "score": 0,
+        "ok": true,
+        "elapsed": 1.988128662109375,
+        "tokens": 359,
+        "reply": "當 l 和 r 相鄰時，mid 會等於 l，因此 `if (a[mid] < target) l = mid` 會讓 l 保持不變，導致迴圈永久運轉，進而無限循環或回傳錯誤的索引。",
+        "hit": null
+      },
+      {
+        "id": "B4",
+        "score": 1,
+        "ok": true,
+        "elapsed": 2.1304237842559814,
+        "tokens": 223,
+        "reply": "遞迴函式缺少 visited 標記處理，因此當圖表存在環時會無限遞迴，導致堆疊溢位。",
+        "hit": "visited"
+      },
+      {
+        "id": "B5",
+        "score": 1,
+        "ok": true,
+        "elapsed": 1.9175574779510498,
+        "tokens": 326,
+        "reply": "刪除元素會使迭代器 `it` 無效，導致迴圈在其失效後仍繼續使用，造成未定義行為。",
+        "hit": "失效"
+      }
+    ],
+    "task_b_score": 4,
+    "task_b_elapsed": 20.720425128936768,
+    "task_b_tokens": 1904,
+    "task_c": [
+      {
+        "id": "C1",
+        "score": 1.0,
+        "ok": true,
+        "elapsed": 3.6502175331115723,
+        "tokens": 310,
+        "reply": "**解法**：將所有區間按照右端點（或右端點相同時左端點）排序，然後從左到右掃描，選擇當前選定的區間的右端點不小於已選區間中最大右端點的每個區間。這種貪心策略確保每次都選取了能為集合貢獻最多元素的區間，最終得到互不重疊的區間個數最大化的解。\n\n**時間複雜度**：排序需要 O(n log n) 時間，單次掃描則需要 O(n) 時間，因此總體複雜度為 O(n log n)，滿足 n ≤ 10^5 的",
+        "detail": {
+          "algo_hit": [
+            "貪心",
+            "排序",
+            "右端點"
+          ],
+          "has_complexity": true
+        }
+      },
+      {
+        "id": "C2",
+        "score": 0.3,
+        "ok": true,
+        "elapsed": 4.704654932022095,
+        "tokens": 500,
+        "reply": "使用修改後的合併排序：遞迴地對每半陣列排序，在合併過程當中當取用右半陣列的元素時，如果左半陣列中還有元素未處理完就將這些剩餘元素計入反轉數。沿著遞迴過程累加左右半陣列本身產生的反轉數與 merge 時產生的交叉反轉數。整個演算法的時間複雜度為**O(n log n)**，額外的空間則為**O(n)**。",
+        "detail": {
+          "algo_hit": [],
+          "has_complexity": true
+        }
+      },
+      {
+        "id": "C3",
+        "score": 1.0,
+        "ok": true,
+        "elapsed": 1.7459144592285156,
+        "tokens": 361,
+        "reply": "檢查圖的每個節點的度數，同時使用 DFS/BFS 掃描圖中所有出現的邊，確保所有非孤立節點都屬於同一個聯通分量（O(n+m)）。如果聯通分量中的度數為 0 => 存在歐拉路徑（閉迴路）；如果存在恰好兩個度數為奇數的節點 => 存在歐拉路徑（開路）；否則 => 不存在。時間複雜度為 O(n+m)。",
+        "detail": {
+          "algo_hit": [
+            "歐拉",
+            "度數"
+          ],
+          "has_complexity": true
+        }
+      }
+    ],
+    "task_c_score": 2.3,
+    "task_c_elapsed": 10.100786924362183,
+    "task_c_tokens": 1171,
+    "total_score": 78.88888888888889,
+    "total_elapsed": 37.94019055366516,
+    "total_tokens": 4039
+  },
+  {
+    "model": "google/gemma-4-31b-it:free",
+    "task_a": [
+      {
+        "id": "A1",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.1290891170501709,
+        "tokens": 0,
+        "reply": "{'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'google/gemma-4-31b-it:free "
+      },
+      {
+        "id": "A2",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.16114234924316406,
+        "tokens": 0,
+        "reply": "{'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'google/gemma-4-31b-it:free "
+      },
+      {
+        "id": "A3",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.15841341018676758,
+        "tokens": 0,
+        "reply": "{'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'google/gemma-4-31b-it:free "
+      },
+      {
+        "id": "A4",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.23439288139343262,
+        "tokens": 0,
+        "reply": "{'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'google/gemma-4-31b-it:free "
+      },
+      {
+        "id": "A5",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.17487072944641113,
+        "tokens": 0,
+        "reply": "{'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'google/gemma-4-31b-it:free "
+      }
+    ],
+    "task_a_score": 0,
+    "task_a_elapsed": 0.8579084873199463,
+    "task_a_tokens": 0,
+    "task_b": [
+      {
+        "id": "B1",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.19626975059509277,
+        "tokens": 0,
+        "reply": "{'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'google/gemma-4-31b-it:free "
+      },
+      {
+        "id": "B2",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.16964101791381836,
+        "tokens": 0,
+        "reply": "{'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'google/gemma-4-31b-it:free "
+      },
+      {
+        "id": "B3",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.15726566314697266,
+        "tokens": 0,
+        "reply": "{'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'google/gemma-4-31b-it:free "
+      },
+      {
+        "id": "B4",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.13714051246643066,
+        "tokens": 0,
+        "reply": "{'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'google/gemma-4-31b-it:free "
+      },
+      {
+        "id": "B5",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.15726280212402344,
+        "tokens": 0,
+        "reply": "{'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'google/gemma-4-31b-it:free "
+      }
+    ],
+    "task_b_score": 0,
+    "task_b_elapsed": 0.8175797462463379,
+    "task_b_tokens": 0,
+    "task_c": [
+      {
+        "id": "C1",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.14356637001037598,
+        "tokens": 0,
+        "reply": "{'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'google/gemma-4-31b-it:free "
+      },
+      {
+        "id": "C2",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.16431212425231934,
+        "tokens": 0,
+        "reply": "{'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'google/gemma-4-31b-it:free "
+      },
+      {
+        "id": "C3",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.1852250099182129,
+        "tokens": 0,
+        "reply": "{'message': 'Provider returned error', 'code': 429, 'metadata': {'raw': 'google/gemma-4-31b-it:free "
+      }
+    ],
+    "task_c_score": 0,
+    "task_c_elapsed": 0.4931035041809082,
+    "task_c_tokens": 0,
+    "total_score": 0.0,
+    "total_elapsed": 2.1685917377471924,
+    "total_tokens": 0
+  },
+  {
+    "model": "inclusionai/ling-3.0-flash-sante:free",
+    "task_a": [
+      {
+        "id": "A1",
+        "score": 1,
+        "ok": true,
+        "elapsed": 2.160458564758301,
+        "tokens": 509,
+        "reply": "Sliding Window（雙指針）",
+        "hit": "sliding window"
+      },
+      {
+        "id": "A2",
+        "score": 1,
+        "ok": true,
+        "elapsed": 1.1880338191986084,
+        "tokens": 216,
+        "reply": "動態規劃",
+        "hit": "動態規劃"
+      },
+      {
+        "id": "A3",
+        "score": 1,
+        "ok": true,
+        "elapsed": 3.2258689403533936,
+        "tokens": 786,
+        "reply": "倍增法",
+        "hit": "倍增"
+      },
+      {
+        "id": "A4",
+        "score": 1,
+        "ok": true,
+        "elapsed": 1.0880579948425293,
+        "tokens": 212,
+        "reply": "Dijkstra 算法",
+        "hit": "dijkstra"
+      },
+      {
+        "id": "A5",
+        "score": 0,
+        "ok": true,
+        "elapsed": 3.2896060943603516,
+        "tokens": 670,
+        "reply": "线段树",
+        "hit": null
+      }
+    ],
+    "task_a_score": 4,
+    "task_a_elapsed": 10.952025413513184,
+    "task_a_tokens": 2393,
+    "task_b": [
+      {
+        "id": "B1",
+        "score": 0,
+        "ok": true,
+        "elapsed": 2.5626800060272217,
+        "tokens": 702,
+        "reply": "`a[i] * a[i]` 是 int 乘法会溢出（10^18 超过 int 范围），且 `sum` 用 `int` 累加也会溢出（总和可达 10^23）。",
+        "hit": null
+      },
+      {
+        "id": "B2",
+        "score": 1,
+        "ok": true,
+        "elapsed": 1.8827259540557861,
+        "tokens": 413,
+        "reply": "當 `v` 為空時，`v.size()` 回傳無符號整數 0，減 1 會下溢變成極大值，導致迴圈越界存取。",
+        "hit": "空"
+      },
+      {
+        "id": "B3",
+        "score": 1,
+        "ok": true,
+        "elapsed": 2.0338945388793945,
+        "tokens": 506,
+        "reply": "當 `l` 和 `r` 相鄰時（例如 `l=0, r=1`），`mid = (l+r)/2 = l`，若 `a[mid] < target` 則 `l = mid` 不變，導致 `l < r` 永遠成立，死循環。修復方式是將 `l = mid` 改為 `l = mid + 1`。",
+        "hit": "死循環"
+      },
+      {
+        "id": "B4",
+        "score": 1,
+        "ok": true,
+        "elapsed": 1.2297554016113281,
+        "tokens": 231,
+        "reply": "缺少 `visited` 標記，圖有環時會無限遞迴導致堆疊溢位。",
+        "hit": "visited"
+      },
+      {
+        "id": "B5",
+        "score": 1,
+        "ok": true,
+        "elapsed": 1.8272125720977783,
+        "tokens": 459,
+        "reply": "`mp.erase(it)` 會讓 `it` 失效，下一次 `it++` 會導致未定義行為。",
+        "hit": "失效"
+      }
+    ],
+    "task_b_score": 4,
+    "task_b_elapsed": 9.536268472671509,
+    "task_b_tokens": 2311,
+    "task_c": [
+      {
+        "id": "C1",
+        "score": 0.7,
+        "ok": true,
+        "elapsed": 2.1413495540618896,
+        "tokens": 428,
+        "reply": "**解法：** 將區間按右端點（結束時間）升序排序，從左到右掃描，每次挑選與上一個已選區間不重疊且結束最早的區間。\n\n**正確性：** 贪心選擇最早結束的區間能釋放最多剩餘時間，透過 exchange argument 可證此策略必能得到最大數量的不重疊區間。\n\n**時間複雜度：** $O(n \\log n)$（主要來自排序，掃描為 $O(n)$）。",
+        "detail": {
+          "algo_hit": [
+            "排序",
+            "右端點"
+          ],
+          "has_complexity": false
+        }
+      },
+      {
+        "id": "C2",
+        "score": 0.3,
+        "ok": true,
+        "elapsed": 3.3510324954986572,
+        "tokens": 841,
+        "reply": "使用归并排序的分治法，在合并两个有序子数组时，若左半部分当前元素大于右半部分当前元素，则左半部分剩余元素均与右半部分当前元素构成逆序对，累加计数。递归地对左右子数组分别排序并统计逆序对，最终得到总数。时间复杂度为 O(n log n)。",
+        "detail": {
+          "algo_hit": [],
+          "has_complexity": true
+        }
+      },
+      {
+        "id": "C3",
+        "score": 1.0,
+        "ok": true,
+        "elapsed": 3.138882637023926,
+        "tokens": 633,
+        "reply": "**解法：** 判斷無向圖是否存在歐拉路徑，需滿足兩條條件：(1) 所有有邊相連的點屬於同一個連通分量（用並查集或 BFS 檢查）；(2) 度數為奇數的點個數為 0 或 2（0 個為歐拉迴路，2 個則為開口歐拉路徑）。\n\n**時間複雜度：** O(n + m)\n\n**說明：** 遍歷所有邊計算每個點的度數並做並查集合併，最後檢查連通性和奇數度點個數即可。",
+        "detail": {
+          "algo_hit": [
+            "歐拉",
+            "度數",
+            "連通"
+          ],
+          "has_complexity": true
+        }
+      }
+    ],
+    "task_c_score": 2.0,
+    "task_c_elapsed": 8.631264686584473,
+    "task_c_tokens": 1902,
+    "total_score": 75.55555555555556,
+    "total_elapsed": 29.119558572769165,
+    "total_tokens": 6606
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "a": 3,
+    "b": 4,
+    "c": 2.7,
+    "d": 3.5,
+    "total": 75.0,
+    "elapsed": 458.7180016040802,
+    "tokens": 36619
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "a": 4,
+    "b": 4,
+    "c": 2.3,
+    "d": 4.0,
+    "total": 79.16666666666667,
+    "elapsed": 96.15933609008789,
+    "tokens": 8498
+  },
+  {
+    "model": "google/gemma-4-31b-it:free",
+    "a": 0,
+    "b": 0,
+    "c": 0,
+    "d": 0,
+    "total": 0.0,
+    "elapsed": 3.3014309406280518,
+    "tokens": 0
+  },
+  {
+    "model": "inclusionai/ling-3.0-flash-sante:free",
+    "a": 4,
+    "b": 4,
+    "c": 2.0,
+    "d": 4.0,
+    "total": 76.66666666666666,
+    "elapsed": 67.23001790046692,
+    "tokens": 15754
+  }
+]

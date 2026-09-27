@@ -1,0 +1,6 @@
+[
+  "nvidia/nemotron-3-super-120b-a12b:free",
+  "cohere/north-mini-code:free",
+  "google/gemma-4-31b-it:free",
+  "inclusionai/ling-3.0-flash-sante:free"
+]

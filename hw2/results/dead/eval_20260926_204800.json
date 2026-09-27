@@ -1,0 +1,502 @@
+[
+  {
+    "model": "nvidia/nemotron-3-super-120b-a12b:free",
+    "task_a": [
+      {
+        "id": "A1",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.29767894744873047,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "A2",
+        "score": 0,
+        "ok": false,
+        "elapsed": 1.066512107849121,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "A3",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.1523299217224121,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "A4",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.15500235557556152,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "A5",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.12697243690490723,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      }
+    ],
+    "task_a_score": 0,
+    "task_a_elapsed": 1.7984957695007324,
+    "task_a_tokens": 0,
+    "task_b": [
+      {
+        "id": "B1",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.11452102661132812,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "B2",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.09381866455078125,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "B3",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.1447007656097412,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "B4",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.10624217987060547,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "B5",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.1591782569885254,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      }
+    ],
+    "task_b_score": 0,
+    "task_b_elapsed": 0.6184608936309814,
+    "task_b_tokens": 0,
+    "task_c": [
+      {
+        "id": "C1",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.13020777702331543,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "C2",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.13617420196533203,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "C3",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.16019487380981445,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      }
+    ],
+    "task_c_score": 0,
+    "task_c_elapsed": 0.4265768527984619,
+    "task_c_tokens": 0,
+    "total_score": 0.0,
+    "total_elapsed": 2.843533515930176,
+    "total_tokens": 0
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task_a": [
+      {
+        "id": "A1",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.1297597885131836,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "A2",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.2296464443206787,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "A3",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.16817975044250488,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "A4",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.16738462448120117,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "A5",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.12749767303466797,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      }
+    ],
+    "task_a_score": 0,
+    "task_a_elapsed": 0.8224682807922363,
+    "task_a_tokens": 0,
+    "task_b": [
+      {
+        "id": "B1",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.12575817108154297,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "B2",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.10757088661193848,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "B3",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.14470744132995605,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "B4",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.1255171298980713,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "B5",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.13906049728393555,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      }
+    ],
+    "task_b_score": 0,
+    "task_b_elapsed": 0.6426141262054443,
+    "task_b_tokens": 0,
+    "task_c": [
+      {
+        "id": "C1",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.10772347450256348,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "C2",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.10647869110107422,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "C3",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.1250779628753662,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      }
+    ],
+    "task_c_score": 0,
+    "task_c_elapsed": 0.3392801284790039,
+    "task_c_tokens": 0,
+    "total_score": 0.0,
+    "total_elapsed": 1.8043625354766846,
+    "total_tokens": 0
+  },
+  {
+    "model": "google/gemma-4-31b-it:free",
+    "task_a": [
+      {
+        "id": "A1",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.11546468734741211,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "A2",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.15097427368164062,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "A3",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.2528085708618164,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "A4",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.1480259895324707,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "A5",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.17859315872192383,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      }
+    ],
+    "task_a_score": 0,
+    "task_a_elapsed": 0.8458666801452637,
+    "task_a_tokens": 0,
+    "task_b": [
+      {
+        "id": "B1",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.13869357109069824,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "B2",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.14267635345458984,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "B3",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.1376640796661377,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "B4",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.1284503936767578,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "B5",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.13814425468444824,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      }
+    ],
+    "task_b_score": 0,
+    "task_b_elapsed": 0.6856286525726318,
+    "task_b_tokens": 0,
+    "task_c": [
+      {
+        "id": "C1",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.10206389427185059,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "C2",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.1709601879119873,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "C3",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.13863873481750488,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      }
+    ],
+    "task_c_score": 0,
+    "task_c_elapsed": 0.4116628170013428,
+    "task_c_tokens": 0,
+    "total_score": 0.0,
+    "total_elapsed": 1.9431581497192383,
+    "total_tokens": 0
+  },
+  {
+    "model": "inclusionai/ling-3.0-flash-sante:free",
+    "task_a": [
+      {
+        "id": "A1",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.15769600868225098,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "A2",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.13093996047973633,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "A3",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.17789196968078613,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "A4",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.10665678977966309,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "A5",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.09732198715209961,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      }
+    ],
+    "task_a_score": 0,
+    "task_a_elapsed": 0.6705067157745361,
+    "task_a_tokens": 0,
+    "task_b": [
+      {
+        "id": "B1",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.12451672554016113,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "B2",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.255509614944458,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "B3",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.11026501655578613,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "B4",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.1621556282043457,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "B5",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.1651768684387207,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      }
+    ],
+    "task_b_score": 0,
+    "task_b_elapsed": 0.8176238536834717,
+    "task_b_tokens": 0,
+    "task_c": [
+      {
+        "id": "C1",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.10989975929260254,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "C2",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.15614080429077148,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      },
+      {
+        "id": "C3",
+        "score": 0,
+        "ok": false,
+        "elapsed": 0.09975504875183105,
+        "tokens": 0,
+        "reply": "{'message': 'Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requ"
+      }
+    ],
+    "task_c_score": 0,
+    "task_c_elapsed": 0.3657956123352051,
+    "task_c_tokens": 0,
+    "total_score": 0.0,
+    "total_elapsed": 1.853926181793213,
+    "total_tokens": 0
+  }
+]
